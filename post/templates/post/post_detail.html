@@ -1,0 +1,55 @@
+{% extends "post/blog.html" %}
+
+{%block changing_content%}
+<ul>
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="card mb-6">
+            {% if post.image %}
+            <img  src="{{post.image.url}}"alt="" width="843" height="420"  >
+            {% endif %}
+            <div class="card-body">
+                
+                <h2 class="card-title">{{post.title}}</h2>
+                <hr></hr> 
+                <p class="card-text">{{post.subtitle}}</p>
+                <p class="card-text">{{post.text}}</p>
+                <p class="card-text">{{post.author}}</p>
+                <div class="small text-muted">{{post.date}}</div>                        
+                </div>
+            </div>
+        </div>
+    </div>
+</ul>
+<ul>
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="card mb-6">
+                <h1>Comentarios</h1>
+                <br/>
+                {% if not post.comments.all %}
+                    No hay comentarios todavia...<a href="{% url 'post:form_comment' post.pk %}">
+                    Agrega uno</a>
+                {% else %}
+                    {% for comment in post.comments.all %}
+                        <strong>
+                            {{ comment.author }}
+                            {{ comment.date }}  
+                        </strong>
+                        {{  comment.body  }}
+                        <br/>
+                        <hr>
+                        
+                    {% endfor %}
+                    <a href="{% url 'post:form_comment' post.pk %}">Agregar un Comentario</a>
+                {% endif %}
+                
+                <br>
+            </div>
+        </div>
+    </div>
+</ul>
+<ul>
+
+
+{% endblock %}

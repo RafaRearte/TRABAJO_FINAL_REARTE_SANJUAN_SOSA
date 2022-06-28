@@ -1,0 +1,15 @@
+{% extends "post/blog.html" %}
+{% load static %}
+{% block changing_content%}
+
+<section class="py-6">
+    <div class="container my-5">
+        <form method="post">>
+            {% csrf_token %}
+            ¿Estas seguro que quieres borrar la noticia?
+            <input type="submit" class="btn btn-secondary" value="Si, borrar">
+        </form>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    </div>
+</section>
+{% endblock %}

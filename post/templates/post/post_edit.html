@@ -1,0 +1,21 @@
+{% extends "home/index.html" %}
+{% load static %}
+{% block changing_content %}
+<section class="py-6">
+    <div class="container my-5">
+        <h2>Formulario para edición del post: "{{post.title}}" </h2>
+        <hr></hr>
+
+        <form action="" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+        
+            {{post_form.as_p}}
+            <img  src="{{post.image.url}}"alt="" width="200" height="150"  >
+            <input type="submit" class="btn btn-secondary" value="Guardar post" />
+            
+        
+        </form>
+    </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'home/index.html' %}
+{% load static %}
+{% block changing_content %}
+<section class="py-6">
+    <div class="container my-5">
+            <h2><center>Carga aquí tu noticia </h2></center>
+            <hr></hr>  
+        <form action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+
+                {{form.as_p}}
+            <hr></hr>
+            <button type="submit" class="btn btn-secondary">Subir noticia</button>
+        </form>
+    </div>
+</section>
+
+{% endblock %}

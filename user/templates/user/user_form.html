@@ -1,0 +1,25 @@
+{% extends 'home/index.html' %}
+{% load static %}
+{% block changing_content %}
+
+<section class="py-6">
+    <div class="container my-5">
+        <h2><center>Formulario para editar el usuario</h2></center>
+        <br>
+        <h3>Usuario: {{user.username}}</h3>
+        <a href="{% url 'user:avatar_load' %}" class="btn btn-dark">Cambiar Avatar</a>
+        <hr></hr>
+
+
+
+        <form action="" method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <hr></hr>
+            <input type="submit" class="btn btn-secondary" value="Guardar Usuario" />
+        </form>
+        <br><br>
+    </div>
+</section>
+
+{% endblock %}

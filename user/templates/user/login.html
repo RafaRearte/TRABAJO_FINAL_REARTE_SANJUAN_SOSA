@@ -1,0 +1,22 @@
+{% extends 'home/index.html' %}
+{% load static %}
+{% block changing_content %}
+<section class="py-6">
+    <div class="container my-5">
+        <h2>Login</h2>
+        <hr></hr>
+
+        {% if form.errors %}
+        <p style="color: red">Combinación de username y password incorrecta, intenta de nuevo.</p>
+        {% endif %}
+
+        <form action="" method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-secondary">Iniciar Sesión</button>
+
+        </form>
+        <br><br><br><br><br><br><br><br>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'home/index.html' %}
+{% load static %}
+{% block changing_content %}
+
+<section class="py-6">
+    <div class="container my-5">
+        <h2>Registro</h2>
+        <hr></hr>
+
+        {% if form.errors %}
+        <p style="color: red">Por favor diligenciar la forma completa.</p>
+        {% endif %}
+
+        <form action="" method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-secondary">Registrar Usuario</button>
+        </form>
+        <br>
+    </div>
+</section>
+{% endblock %}
